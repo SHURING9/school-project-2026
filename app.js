@@ -71,11 +71,7 @@ const resultItems = [
     title: "미니 칼림바",
     description: "8음 열쇠고리 칼림바를 직접 조립하고 연주한 음악 작품"
   },
-  {
-    icon: "💌",
-    title: "성찰 기록",
-    description: "활동 속에서 발견한 나의 생각과 새로운 가능성"
-  }
+
 ];
 
 
@@ -91,7 +87,6 @@ function renderResults() {
         "📖 진로계열별 독서토론",
         "🎨 진로 인포그래픽 · 미니북",
         "📚 진로 북큐레이션",
-        "✏️ 정리 · 성찰"
       ]
     },
     {
@@ -99,7 +94,6 @@ function renderResults() {
       activities: [
         "🌷 향기 사쉐 만들기",
         "🏃 뉴스포츠 협력 챌린지",
-        "💌 공유 · 성찰"
       ]
     },
     {
