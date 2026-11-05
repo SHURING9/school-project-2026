@@ -512,3 +512,34 @@ footer small {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* 우리의 활동 이야기: 1·2·3일차 가로 나열 */
+#program-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+}
+
+#program-list > .program-day {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+/* 태블릿에서는 2열 */
+@media (max-width: 800px) {
+  #program-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* 휴대폰에서는 1열 */
+@media (max-width: 520px) {
+  #program-list {
+    grid-template-columns: 1fr !important;
+  }
+}
