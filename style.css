@@ -37,6 +37,8 @@ a {
   text-decoration: none;
 }
 
+/* 상단 메뉴 */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -210,14 +212,18 @@ nav a:hover {
   font-size: 15px;
 }
 
-/* 일정 영역 */
+/* 우리의 활동 이야기: 1·2·3일차 */
 
 .program-container {
   display: grid;
-  gap: 28px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
 }
 
 .program-day {
+  min-width: 0;
   background: var(--paper);
   border-radius: 25px;
   padding: 25px;
@@ -240,19 +246,35 @@ nav a:hover {
 .day-title {
   font-family: 'Jua', sans-serif;
   font-size: 25px;
+  line-height: 1.5;
   margin-bottom: 20px;
+  overflow-wrap: break-word;
+}
+
+.day-date {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.day-description {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
 }
 
 .program-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .program-card {
-  padding: 18px;
+  min-width: 0;
+  padding: 15px;
   border-radius: 18px;
   background: #fffaf7;
+  overflow-wrap: break-word;
 }
 
 .program-card:nth-child(4n+1) {
@@ -274,7 +296,7 @@ nav a:hover {
 .period {
   display: inline-block;
   background: white;
-  padding: 4px 14px;
+  padding: 4px 10px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: bold;
@@ -283,7 +305,8 @@ nav a:hover {
 
 .program-card h3 {
   font-family: 'Jua', sans-serif;
-  font-size: 18px;
+  font-size: 17px;
+  line-height: 1.5;
   margin-bottom: 10px;
 }
 
@@ -293,7 +316,7 @@ nav a:hover {
   margin-top: 7px;
 }
 
-/* 결과물 및 갤러리 */
+/* 우리가 만든 결과물 */
 
 .results-section {
   max-width: none;
@@ -301,28 +324,35 @@ nav a:hover {
 }
 
 .results-section .section-heading,
-.results-section .result-container {
+.results-section .result-container,
+.results-section #result-list {
   max-width: 1152px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.result-container {
+.result-container,
+#result-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+  align-items: stretch;
+  width: 100%;
 }
 
 .result-card {
+  min-width: 0;
   background: white;
   padding: 22px;
   border-radius: 20px;
   box-shadow: 0 5px 18px #50426b0d;
+  overflow-wrap: break-word;
 }
 
 .result-card h3 {
   font-family: 'Jua', sans-serif;
   font-size: 20px;
+  line-height: 1.5;
   margin-bottom: 10px;
 }
 
@@ -331,9 +361,25 @@ nav a:hover {
   font-size: 14px;
 }
 
-.gallery-container {
+.activity-list {
+  padding-left: 20px;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.coming-soon {
+  display: inline-block;
+  margin-top: 12px;
+  color: #8d78bf;
+  font-size: 12px;
+}
+
+/* 함께한 순간들 */
+
+.gallery-container,
+#gallery-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -348,6 +394,19 @@ nav a:hover {
   font-size: 15px;
 }
 
+.gallery-empty {
+  padding: 35px 20px;
+  text-align: center;
+  border-radius: 20px;
+  background: #fffefa;
+  color: var(--muted);
+}
+
+.gallery-empty > div:first-child {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
 /* 성찰 */
 
 .reflection-section {
@@ -360,6 +419,26 @@ nav a:hover {
   padding: 35px;
   border-radius: 25px;
   background: linear-gradient(120deg, #fff0e4, #f1ebff, #e7f5e9);
+}
+
+.reflection-message {
+  text-align: center;
+}
+
+.reflection-message h3 {
+  font-family: 'Jua', sans-serif;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.reflection-message p {
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.reflection-bottom {
+  margin-top: 20px;
+  font-family: 'Jua', sans-serif;
 }
 
 /* 푸터 */
@@ -383,7 +462,7 @@ footer small {
   opacity: 0.8;
 }
 
-/* 모바일 반응형 */
+/* 태블릿 */
 
 @media (max-width: 850px) {
   .header-inner {
@@ -401,15 +480,23 @@ footer small {
     font-size: 12px;
   }
 
+  .program-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .program-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .result-container,
-  .gallery-container {
-    grid-template-columns: repeat(2, 1fr);
+  #result-list,
+  .gallery-container,
+  #gallery-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* 휴대폰 */
 
 @media (max-width: 520px) {
   .hero {
@@ -428,118 +515,28 @@ footer small {
     font-size: 28px;
   }
 
-  .program-day {
-    padding: 16px;
-  }
-
+  .program-container,
   .program-grid,
   .result-container,
-  .gallery-container {
+  #result-list,
+  .gallery-container,
+  #gallery-list {
     grid-template-columns: 1fr;
+  }
+
+  .program-day {
+    padding: 18px;
   }
 
   .day-title {
     font-size: 21px;
   }
-}
 
-/* 우리의 활동 이야기: 1·2·3일차 가로 배치 */
-#result-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  align-items: stretch;
-}
-
-#result-list .result-card {
-  min-width: 0;
-  height: 100%;
-  box-sizing: border-box;
-  padding: 24px 20px;
-}
-
-#result-list .result-card h3 {
-  line-height: 1.5;
-  overflow-wrap: break-word;
-}
-
-#result-list .activity-list {
-  padding-left: 20px;
-  line-height: 1.9;
-}
-
-/* 태블릿에서는 두 칸으로 */
-@media (max-width: 800px) {
-  #result-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .result-card {
+    padding: 20px;
   }
-}
 
-/* 휴대폰에서는 한 칸으로 */
-@media (max-width: 520px) {
-  #result-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 활동 이야기 카드 3개 가로 배치 */
-#result-list {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 20px;
-  align-items: stretch;
-  width: 100%;
-}
-
-#result-list > .result-card {
-  width: auto !important;
-  max-width: none !important;
-  min-width: 0;
-  margin: 0 !important;
-  box-sizing: border-box;
-}
-
-/* 태블릿 */
-@media (max-width: 800px) {
-  #result-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-/* 휴대폰 */
-@media (max-width: 520px) {
-  #result-list {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* 우리의 활동 이야기: 1·2·3일차 가로 나열 */
-#program-list {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 20px;
-  align-items: stretch;
-  width: 100%;
-}
-
-#program-list > .program-day {
-  width: auto !important;
-  max-width: none !important;
-  min-width: 0;
-  margin: 0 !important;
-  box-sizing: border-box;
-}
-
-/* 태블릿에서는 2열 */
-@media (max-width: 800px) {
-  #program-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-/* 휴대폰에서는 1열 */
-@media (max-width: 520px) {
-  #program-list {
-    grid-template-columns: 1fr !important;
+  #reflection-list {
+    padding: 25px 18px;
   }
 }
