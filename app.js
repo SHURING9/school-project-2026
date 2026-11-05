@@ -27,22 +27,79 @@ const programGroups = [
   }
 ];
 
+
 function renderPrograms() {
   const container = document.getElementById("program-list");
 
   if (!container) return;
 
-  container.innerHTML = programGroups.map(day => `
+  container.innerHTML = programGroups.map((day, dayIndex) => `
     <article class="program-day">
       <h3 class="day-title">${day.title}</h3>
+
       <p class="day-description">
         <strong>${day.theme}</strong>
       </p>
-      <p class="program-names">
-        ${day.activities.join(" · ")}
-      </p>
+
+      <div class="program-names">
+        ${day.activities.map(activity => {
+          if (
+            dayIndex === 2 &&
+            activity.includes("칼림바 만들기")
+          ) {
+            return `
+              <button
+                type="button"
+                class="kalimba-toggle"
+                aria-expanded="false"
+                aria-controls="kalimba-guide"
+                onclick="toggleKalimbaGuide()"
+              >
+                ${activity} <span>＋</span>
+              </button>
+            `;
+          }
+
+          return `<span>${activity}</span>`;
+        }).join(" · ")}
+      </div>
+
+      ${dayIndex === 2 ? `
+        <div id="kalimba-guide" class="kalimba-guide" hidden>
+          <h4>🎵 칼림바 만들기 & 합주 가이드</h4>
+
+          <h5>STEP 1. 칼림바 만들기</h5>
+          <div class="kalimba-video">
+            <p>칼림바 제작 영상이 들어갈 자리</p>
+          </div>
+
+          <h5>STEP 2. 기본 연주 연습</h5>
+          <div class="kalimba-video">
+            <p>기본 연주 연습 영상이 들어갈 자리</p>
+          </div>
+
+          <h5>STEP 3. 함께 합주하기</h5>
+          <div class="kalimba-video">
+            <p>합주곡 연습 영상이 들어갈 자리</p>
+          </div>
+        </div>
+      ` : ""}
     </article>
   `).join("");
+}
+
+function toggleKalimbaGuide() {
+  const guide = document.getElementById("kalimba-guide");
+  const button = document.querySelector(".kalimba-toggle");
+
+  if (!guide || !button) return;
+
+  const isOpening = guide.hidden;
+
+  guide.hidden = !isOpening;
+  button.setAttribute("aria-expanded", String(isOpening));
+  button.querySelector("span").textContent =
+    isOpening ? "－" : "＋";
 }
 
 const resultItems = [
