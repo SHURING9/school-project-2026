@@ -80,20 +80,51 @@ const resultItems = [
   }
 ];
 
+
 function renderResults() {
   const container = document.getElementById("result-list");
 
   if (!container) return;
 
-  container.innerHTML = resultItems.map(item => `
+  const programGroups = [
+    {
+      title: "📚 1일차 · 책에서 발견하는 나의 진로",
+      activities: [
+        "📖 진로계열별 독서토론",
+        "🎨 진로 인포그래픽 · 미니북",
+        "📚 진로 북큐레이션",
+        "✏️ 정리 · 성찰"
+      ]
+    },
+    {
+      title: "🌸 2일차 · 함께 만드는 즐거운 하루",
+      activities: [
+        "🌷 향기 사쉐 만들기",
+        "🏃 뉴스포츠 협력 챌린지",
+        "💌 공유 · 성찰"
+      ]
+    },
+    {
+      title: "🎵 3일차 · 우리의 작품을 만나는 시간",
+      activities: [
+        "🎶 칼림바 만들기",
+        "🖼️ 전시 · 갤러리워크"
+      ]
+    }
+  ];
+
+  container.innerHTML = programGroups.map(day => `
     <article class="result-card">
-      <div class="result-icon">${item.icon}</div>
-      <h3>${item.title}</h3>
-      <p>${item.description}</p>
-      <span class="coming-soon">작품을 준비하고 있어요 ✨</span>
+      <h3>${day.title}</h3>
+      <ul class="activity-list">
+        ${day.activities.map(activity => `
+          <li>${activity}</li>
+        `).join("")}
+      </ul>
     </article>
   `).join("");
 }
+
 
 function renderGallery() {
   const container = document.getElementById("gallery-list");
