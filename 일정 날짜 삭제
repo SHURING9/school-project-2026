@@ -140,41 +140,26 @@ const programDays = [
   }
 ];
 
+
 function renderPrograms() {
   const container = document.getElementById("program-list");
 
   if (!container) return;
 
-  container.innerHTML = programDays.map(day => `
-    <article class="program-day">
-      <h3 class="day-title">${day.title}</h3>
-      <div class="day-date">${day.date}</div>
-      <p class="day-description">${day.description}</p>
+  const activities = programDays.flatMap(day => day.activities);
 
-      <div class="program-grid">
-        ${day.activities.map(activity => `
-          <div class="program-card">
-            <div class="activity-icon">${activity.icon}</div>
-            <span class="period">${activity.period}</span>
-            <h3>${activity.title}</h3>
-            <ul>
-              ${activity.details.map(detail =>
-                `<li>${detail}</li>`
-              ).join("")}
-            </ul>
-            <p class="activity-place">📍 ${activity.place}</p>
-          </div>
-        `).join("")}
-      </div>
-    </article>
-  `).join("") + `
-    <div class="festival-notice">
-      🎉 <strong>12월 30일 (수)</strong>
-      <p>동아리 학술제 · 축제가 1~6교시에 운영됩니다.</p>
-      <small>※ 별도 계획에 따라 진행합니다.</small>
+  container.innerHTML = `
+    <div class="program-grid">
+      ${activities.map(activity => `
+        <div class="program-card">
+          <div class="activity-icon">${activity.icon}</div>
+          <h3>${activity.title}</h3>
+        </div>
+      `).join("")}
     </div>
   `;
 }
+
 
 const resultItems = [
   {
