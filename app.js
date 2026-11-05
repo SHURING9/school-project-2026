@@ -68,7 +68,7 @@ function renderPrograms() {
         <div id="kalimba-guide" class="kalimba-guide" hidden>
           <h4>🎵 합주 참고 영상</h4>
 
-          <h5>STEP 1. Somewhere Over the Rainbow</h5>
+          <h5>1. Somewhere Over the Rainbow</h5>
           <div class="kalimba-video">
             <iframe
               src="https://www.youtube.com/embed/X-ruR6ISnhY"
@@ -77,7 +77,7 @@ function renderPrograms() {
             ></iframe>
           </div>
 
-          <h5>STEP 2. 마법 소녀 배달부 키키</h5>
+          <h5>2. 마법 소녀 배달부 키키</h5>
           <div class="kalimba-video">
             <iframe
               src="https://www.youtube.com/embed/LSAk51T7PrM"
