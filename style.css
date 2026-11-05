@@ -540,3 +540,56 @@ footer small {
     padding: 25px 18px;
   }
 }
+
+
+/* 칼림바 가이드 펼치기 */
+.kalimba-toggle {
+  border: 0;
+  padding: 3px 0;
+  background: transparent;
+  color: #725743;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+}
+
+.kalimba-toggle:hover {
+  color: #a27650;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.kalimba-guide {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #eadfce;
+  border-radius: 14px;
+  background: #fffaf3;
+}
+
+.kalimba-guide[hidden] {
+  display: none !important;
+}
+
+.kalimba-guide h4 {
+  margin-top: 0;
+  color: #655344;
+}
+
+.kalimba-guide h5 {
+  margin-bottom: 8px;
+}
+
+.kalimba-video {
+  display: flex;
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f1eae1;
+  color: #75685c;
+  text-align: center;
+}
