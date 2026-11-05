@@ -593,3 +593,12 @@ footer small {
   color: #75685c;
   text-align: center;
 }
+
+.kalimba-video iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 458 / 815;
+  height: auto;
+  border: 0;
+  border-radius: 10px;
+}
