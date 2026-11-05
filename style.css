@@ -481,3 +481,34 @@ footer small {
     grid-template-columns: 1fr;
   }
 }
+
+/* 활동 이야기 카드 3개 가로 배치 */
+#result-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+}
+
+#result-list > .result-card {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+/* 태블릿 */
+@media (max-width: 800px) {
+  #result-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* 휴대폰 */
+@media (max-width: 520px) {
+  #result-list {
+    grid-template-columns: 1fr !important;
+  }
+}
