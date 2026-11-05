@@ -1,193 +1,51 @@
 
-const programDays = [
+const programGroups = [
   {
-    date: "12월 29일 (화)",
-    title: "📚 책에서 발견하는 나의 진로",
-    description: "진로 독서와 창작으로 나만의 생각을 표현하는 날",
+    title: "1일차",
+    theme: "📚 책에서 발견하는 나의 진로",
     activities: [
-      {
-        period: "1~2교시",
-        title: "진로계열별 독서토론",
-        icon: "📖",
-        color: "pink",
-        details: [
-          "인상 깊은 문장과 장면 공유",
-          "토론 질문 카드로 모둠 토론",
-          "책 속 진로 쟁점 도출 및 기록"
-        ],
-        place: "해당 수업 교실"
-      },
-      {
-        period: "3~4교시",
-        title: "진로 인포그래픽 · 미니북",
-        icon: "🎨",
-        color: "lavender",
-        details: [
-          "8페이지 무지 미니북 제작",
-          "책 소개와 핵심 문장 기록",
-          "관련 직업·역량·학과 인포그래픽"
-        ],
-        place: "해당 수업 교실"
-      },
-      {
-        period: "5~6교시",
-        title: "진로 북큐레이션",
-        icon: "📚",
-        color: "mint",
-        details: [
-          "모둠별 북큐레이션 주제 설정",
-          "옛 도서 대출 카드 형식의 추천 카드 제작",
-          "3분 북토크로 학급 공유"
-        ],
-        place: "해당 수업 교실"
-      },
-      {
-        period: "7교시",
-        title: "정리 · 성찰",
-        icon: "✏️",
-        color: "yellow",
-        details: [
-          "모둠별 결과물 완성 및 제출",
-          "개인 성찰지 작성"
-        ],
-        place: "해당 수업 교실"
-      }
+      "진로계열별 독서토론",
+      "진로 인포그래픽 · 미니북",
+      "진로 북큐레이션",
+      "정리 · 성찰"
     ]
   },
   {
-    date: "12월 31일 (목)",
-    title: "🌸 함께 만드는 즐거운 하루",
-    description: "감성을 표현하고 협력의 즐거움을 경험하는 날",
+    title: "2일차",
+    theme: "🌸 함께 만드는 즐거운 하루",
     activities: [
-      {
-        period: "1~2교시",
-        title: "향기 사쉐 만들기",
-        icon: "🌷",
-        color: "pink",
-        details: [
-          "한 해를 돌아보며 향기·감정 키워드 선택",
-          "나만의 향기 사쉐 제작",
-          "키워드 카드 작성"
-        ],
-        place: "해당 수업 교실"
-      },
-      {
-        period: "3~4교시",
-        title: "뉴스포츠 협력 챌린지",
-        icon: "🏃",
-        color: "mint",
-        details: [
-          "협동형 뉴스포츠 종목 순환 운영",
-          "종목별 규칙 안내 카드 활용",
-          "함께 도전하며 협력하기"
-        ],
-        place: "체육관"
-      },
-      {
-        period: "5교시",
-        title: "교과 수업",
-        icon: "📝",
-        color: "yellow",
-        details: [
-          "정규 시간표에 따른 교과 수업"
-        ],
-        place: "해당 교실"
-      },
-      {
-        period: "6~7교시",
-        title: "공유 · 성찰",
-        icon: "💌",
-        color: "lavender",
-        details: [
-          "활동 소감 나누기",
-          "중간 공유 및 성찰지 작성"
-        ],
-        place: "해당 수업 교실"
-      }
+      "향기 사쉐 만들기",
+      "뉴스포츠 협력 챌린지",
+      "공유 · 성찰"
     ]
   },
   {
-    date: "1월 4일 (월)",
-    title: "🎵 우리의 작품을 만나는 시간",
-    description: "직접 만들고 연주하고, 서로의 작품을 감상하는 날",
+    title: "3일차",
+    theme: "🎵 우리의 작품을 만나는 시간",
     activities: [
-      {
-        period: "1~4교시",
-        title: "칼림바 만들기",
-        icon: "🎶",
-        color: "lavender",
-        details: [
-          "8음 열쇠고리 칼림바 키트 조립",
-          "제작 안내 영상을 보며 조율",
-          "기본 연주법 익히기",
-          "모둠별 합주 및 발표"
-        ],
-        place: "해당 수업 교실"
-      },
-      {
-        period: "5~6교시",
-        title: "전시 · 갤러리워크",
-        icon: "🖼️",
-        color: "peach",
-        details: [
-          "미니북·인포그래픽·북큐레이션 카드 전시",
-          "작품 관람 및 포스트잇 상호 피드백",
-          "학년말 활동 소감 작성"
-        ],
-        place: "기존 게시 공간 및 해당 교실"
-      }
+      "칼림바 만들기",
+      "전시 · 갤러리워크"
     ]
   }
 ];
-
-
 
 function renderPrograms() {
   const container = document.getElementById("program-list");
 
   if (!container) return;
 
-  const programGroups = [
-    {
-      title: "1일차",
-      theme: "📚 책에서 발견하는 나의 진로",
-      activities: [
-        "진로계열별 독서토론",
-        "진로 인포그래픽 · 미니북",
-        "진로 북큐레이션",
-        "정리 · 성찰"
-      ]
-    },
-    {
-      title: "2일차",
-      theme:  "🌿 함께 만들고 나누는 우리",
-      activities: [
-        "향기 사쉐 만들기",
-        "뉴스포츠 협력 챌린지",
-        "공유 · 성찰"
-      ]
-    },
-       {
-      title: "3일차",
-      theme: "🎵 소리와 작품으로 완성하는 우리",
-      activities: [
-        "미니 칼림바 만들기",
-        "전시 · 갤러리워크"
-      ]
-    }
-  ];
-
   container.innerHTML = programGroups.map(day => `
     <article class="program-day">
       <h3 class="day-title">${day.title}</h3>
-      <p class="day-description"><strong>${day.theme}</strong></p>
+      <p class="day-description">
+        <strong>${day.theme}</strong>
+      </p>
       <p class="program-names">
         ${day.activities.join(" · ")}
       </p>
     </article>
   `).join("");
 }
-
 
 const resultItems = [
   {
