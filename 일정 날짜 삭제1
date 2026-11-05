@@ -141,23 +141,51 @@ const programDays = [
 ];
 
 
+
 function renderPrograms() {
   const container = document.getElementById("program-list");
 
   if (!container) return;
 
-  const activities = programDays.flatMap(day => day.activities);
+  const programGroups = [
+    {
+      title: "1일차",
+      theme: "📚 책에서 발견하는 나의 진로",
+      activities: [
+        "진로계열별 독서토론",
+        "진로 인포그래픽 · 미니북",
+        "진로 북큐레이션",
+        "정리 · 성찰"
+      ]
+    },
+    {
+      title: "2일차",
+      theme:  "🌿 함께 만들고 나누는 우리",
+      activities: [
+        "향기 사쉐 만들기",
+        "뉴스포츠 협력 챌린지",
+        "공유 · 성찰"
+      ]
+    },
+       {
+      title: "3일차",
+      theme: "🎵 소리와 작품으로 완성하는 우리",
+      activities: [
+        "미니 칼림바 만들기",
+        "전시 · 갤러리워크"
+      ]
+    }
+  ];
 
-  container.innerHTML = `
-    <div class="program-grid">
-      ${activities.map(activity => `
-        <div class="program-card">
-          <div class="activity-icon">${activity.icon}</div>
-          <h3>${activity.title}</h3>
-        </div>
-      `).join("")}
-    </div>
-  `;
+  container.innerHTML = programGroups.map(day => `
+    <article class="program-day">
+      <h3 class="day-title">${day.title}</h3>
+      <p class="day-description"><strong>${day.theme}</strong></p>
+      <p class="program-names">
+        ${day.activities.join(" · ")}
+      </p>
+    </article>
+  `).join("");
 }
 
 
