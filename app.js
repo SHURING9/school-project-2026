@@ -55,7 +55,7 @@ function renderPrograms() {
                 aria-controls="kalimba-guide"
                 onclick="toggleKalimbaGuide()"
               >
-                ${activity} <span>＋</span>
+                🎶 ${activity} <span>＋</span>
               </button>
             `;
           }
@@ -66,27 +66,34 @@ function renderPrograms() {
 
       ${dayIndex === 2 ? `
         <div id="kalimba-guide" class="kalimba-guide" hidden>
-          <h4>🎵 칼림바 만들기 & 합주 가이드</h4>
+          <h4>🎵 합주 참고 영상</h4>
 
-          <h5>STEP 1. 칼림바 만들기</h5>
+          <h5>STEP 1. Somewhere Over the Rainbow</h5>
           <div class="kalimba-video">
-            <p>칼림바 제작 영상이 들어갈 자리</p>
+            <iframe
+              src="https://www.youtube.com/embed/X-ruR6ISnhY"
+              title="Somewhere Over the Rainbow 칼림바 연주"
+              allowfullscreen
+            ></iframe>
           </div>
 
-          <h5>STEP 2. 기본 연주 연습</h5>
+          <h5>STEP 2. 마법 소녀 배달부 키키</h5>
           <div class="kalimba-video">
-            <p>기본 연주 연습 영상이 들어갈 자리</p>
-          </div>
-
-          <h5>STEP 3. 함께 합주하기</h5>
-          <div class="kalimba-video">
-            <p>합주곡 연습 영상이 들어갈 자리</p>
+            <iframe
+              src="https://www.youtube.com/embed/LSAk51T7PrM"
+              title="Kiki's Delivery Service 칼림바 연주"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
       ` : ""}
     </article>
   `).join("");
 }
+
+
 
 function toggleKalimbaGuide() {
   const guide = document.getElementById("kalimba-guide");
