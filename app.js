@@ -1,0 +1,267 @@
+
+const programDays = [
+  {
+    date: "12월 29일 (화)",
+    title: "📚 책에서 발견하는 나의 진로",
+    description: "진로 독서와 창작으로 나만의 생각을 표현하는 날",
+    activities: [
+      {
+        period: "1~2교시",
+        title: "진로계열별 독서토론",
+        icon: "📖",
+        color: "pink",
+        details: [
+          "인상 깊은 문장과 장면 공유",
+          "토론 질문 카드로 모둠 토론",
+          "책 속 진로 쟁점 도출 및 기록"
+        ],
+        place: "해당 수업 교실"
+      },
+      {
+        period: "3~4교시",
+        title: "진로 인포그래픽 · 미니북",
+        icon: "🎨",
+        color: "lavender",
+        details: [
+          "8페이지 무지 미니북 제작",
+          "책 소개와 핵심 문장 기록",
+          "관련 직업·역량·학과 인포그래픽"
+        ],
+        place: "해당 수업 교실"
+      },
+      {
+        period: "5~6교시",
+        title: "진로 북큐레이션",
+        icon: "📚",
+        color: "mint",
+        details: [
+          "모둠별 북큐레이션 주제 설정",
+          "옛 도서 대출 카드 형식의 추천 카드 제작",
+          "3분 북토크로 학급 공유"
+        ],
+        place: "해당 수업 교실"
+      },
+      {
+        period: "7교시",
+        title: "정리 · 성찰",
+        icon: "✏️",
+        color: "yellow",
+        details: [
+          "모둠별 결과물 완성 및 제출",
+          "개인 성찰지 작성"
+        ],
+        place: "해당 수업 교실"
+      }
+    ]
+  },
+  {
+    date: "12월 31일 (목)",
+    title: "🌸 함께 만드는 즐거운 하루",
+    description: "감성을 표현하고 협력의 즐거움을 경험하는 날",
+    activities: [
+      {
+        period: "1~2교시",
+        title: "향기 사쉐 만들기",
+        icon: "🌷",
+        color: "pink",
+        details: [
+          "한 해를 돌아보며 향기·감정 키워드 선택",
+          "나만의 향기 사쉐 제작",
+          "키워드 카드 작성"
+        ],
+        place: "해당 수업 교실"
+      },
+      {
+        period: "3~4교시",
+        title: "뉴스포츠 협력 챌린지",
+        icon: "🏃",
+        color: "mint",
+        details: [
+          "협동형 뉴스포츠 종목 순환 운영",
+          "종목별 규칙 안내 카드 활용",
+          "함께 도전하며 협력하기"
+        ],
+        place: "체육관"
+      },
+      {
+        period: "5교시",
+        title: "교과 수업",
+        icon: "📝",
+        color: "yellow",
+        details: [
+          "정규 시간표에 따른 교과 수업"
+        ],
+        place: "해당 교실"
+      },
+      {
+        period: "6~7교시",
+        title: "공유 · 성찰",
+        icon: "💌",
+        color: "lavender",
+        details: [
+          "활동 소감 나누기",
+          "중간 공유 및 성찰지 작성"
+        ],
+        place: "해당 수업 교실"
+      }
+    ]
+  },
+  {
+    date: "1월 4일 (월)",
+    title: "🎵 우리의 작품을 만나는 시간",
+    description: "직접 만들고 연주하고, 서로의 작품을 감상하는 날",
+    activities: [
+      {
+        period: "1~4교시",
+        title: "칼림바 만들기",
+        icon: "🎶",
+        color: "lavender",
+        details: [
+          "8음 열쇠고리 칼림바 키트 조립",
+          "제작 안내 영상을 보며 조율",
+          "기본 연주법 익히기",
+          "모둠별 합주 및 발표"
+        ],
+        place: "해당 수업 교실"
+      },
+      {
+        period: "5~6교시",
+        title: "전시 · 갤러리워크",
+        icon: "🖼️",
+        color: "peach",
+        details: [
+          "미니북·인포그래픽·북큐레이션 카드 전시",
+          "작품 관람 및 포스트잇 상호 피드백",
+          "학년말 활동 소감 작성"
+        ],
+        place: "기존 게시 공간 및 해당 교실"
+      }
+    ]
+  }
+];
+
+function renderPrograms() {
+  const container = document.getElementById("program-list");
+
+  if (!container) return;
+
+  container.innerHTML = programDays.map(day => `
+    <article class="program-day">
+      <h3 class="day-title">${day.title}</h3>
+      <div class="day-date">${day.date}</div>
+      <p class="day-description">${day.description}</p>
+
+      <div class="program-grid">
+        ${day.activities.map(activity => `
+          <div class="program-card">
+            <div class="activity-icon">${activity.icon}</div>
+            <span class="period">${activity.period}</span>
+            <h3>${activity.title}</h3>
+            <ul>
+              ${activity.details.map(detail =>
+                `<li>${detail}</li>`
+              ).join("")}
+            </ul>
+            <p class="activity-place">📍 ${activity.place}</p>
+          </div>
+        `).join("")}
+      </div>
+    </article>
+  `).join("") + `
+    <div class="festival-notice">
+      🎉 <strong>12월 30일 (수)</strong>
+      <p>동아리 학술제 · 축제가 1~6교시에 운영됩니다.</p>
+      <small>※ 별도 계획에 따라 진행합니다.</small>
+    </div>
+  `;
+}
+
+const resultItems = [
+  {
+    icon: "📖",
+    title: "8페이지 미니북",
+    description: "책 소개부터 핵심 문장, 진로 연결, 나의 질문까지 담은 작은 책"
+  },
+  {
+    icon: "🎨",
+    title: "진로 인포그래픽",
+    description: "책 속 진로 정보와 관련 직업·필요 역량·관련 학과를 표현한 작품"
+  },
+  {
+    icon: "📚",
+    title: "북큐레이션 카드",
+    description: "옛 도서 대출 카드에서 영감을 얻은 모둠별 도서 추천 기록"
+  },
+  {
+    icon: "🌸",
+    title: "향기 사쉐",
+    description: "한 해의 감정과 기억을 향기로 표현한 나만의 작품"
+  },
+  {
+    icon: "🎵",
+    title: "미니 칼림바",
+    description: "8음 열쇠고리 칼림바를 직접 조립하고 연주한 음악 작품"
+  },
+  {
+    icon: "💌",
+    title: "성찰 기록",
+    description: "활동 속에서 발견한 나의 생각과 새로운 가능성"
+  }
+];
+
+function renderResults() {
+  const container = document.getElementById("result-list");
+
+  if (!container) return;
+
+  container.innerHTML = resultItems.map(item => `
+    <article class="result-card">
+      <div class="result-icon">${item.icon}</div>
+      <h3>${item.title}</h3>
+      <p>${item.description}</p>
+      <span class="coming-soon">작품을 준비하고 있어요 ✨</span>
+    </article>
+  `).join("");
+}
+
+function renderGallery() {
+  const container = document.getElementById("gallery-list");
+
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="gallery-empty">
+      <span>📷</span>
+      <h3>우리의 활동을 기록해 주세요!</h3>
+      <p>활동 사진을 하나씩 모아 이곳에 전시할 예정입니다.</p>
+    </div>
+  `;
+}
+
+function renderReflection() {
+  const container = document.getElementById("reflection-list");
+
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="reflection-message">
+      <span>🌱</span>
+      <h3>나의 작은 경험이 새로운 꿈이 되기를</h3>
+      <p>
+        책을 통해 세상을 만나고,<br>
+        친구들과 함께 생각을 나누며,<br>
+        나만의 가능성을 발견하는 시간.
+      </p>
+      <p class="reflection-bottom">
+        우리의 이야기는 계속됩니다. 💜
+      </p>
+    </div>
+  `;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderPrograms();
+  renderResults();
+  renderGallery();
+  renderReflection();
+});
