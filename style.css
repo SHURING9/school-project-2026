@@ -442,3 +442,42 @@ footer small {
     font-size: 21px;
   }
 }
+
+/* 우리의 활동 이야기: 1·2·3일차 가로 배치 */
+#result-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+#result-list .result-card {
+  min-width: 0;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 24px 20px;
+}
+
+#result-list .result-card h3 {
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+#result-list .activity-list {
+  padding-left: 20px;
+  line-height: 1.9;
+}
+
+/* 태블릿에서는 두 칸으로 */
+@media (max-width: 800px) {
+  #result-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 휴대폰에서는 한 칸으로 */
+@media (max-width: 520px) {
+  #result-list {
+    grid-template-columns: 1fr;
+  }
+}
